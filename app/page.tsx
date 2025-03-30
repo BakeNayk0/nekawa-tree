@@ -4,7 +4,6 @@ import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -20,11 +19,13 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = [
   {
     imageUrl: "/nekawa_brand.png",
     buttonLabel: "Webdesign",
+    href: "https://nekawa.fr",
     title: "nekawa.fr",
     description:
       "nekawa.fr is a creative duo combining a freelance fullstack developer and a WordPress designer. They design elegant, functional websites and visual identities for small businesses, artists, and entrepreneurs seeking a unique digital presence.",
@@ -32,6 +33,7 @@ const links = [
   {
     imageUrl: "/nayko_dev_brand.png",
     buttonLabel: "Nayko.dev",
+    href: "https://nayko.dev",
     title: "nayko.dev",
     description:
       "nayko.dev is the digital playground of Alexis (Nayko), a fullstack developer. It blends projects, experiments, and personal creations — all crafted with Next.js and Supabase in a sleek custom interface.",
@@ -39,6 +41,7 @@ const links = [
   {
     imageUrl: "/nekawa_shop_brand.png",
     buttonLabel: "Shop",
+    href: "https://nekawashop.fr",
     title: "nekawashop.fr",
     description:
       "nekawashop is our cozy brand space — a mix of esoteric designs, japanese and nordic vibes. Powered by Shopify, it’s where we share our world through art, fashion, and stories.",
@@ -46,6 +49,7 @@ const links = [
   {
     imageUrl: "/awaken_otter_brand.png",
     buttonLabel: "Aquarelle",
+    href: "https://la-loutre-eveillee.fr/",
     title: "la-loutre-eveillee.fr",
     description:
       "La Loutre Éveillée is a gentle invitation to slow living — offering illustrations, watercolors, and mindful creations rooted in nature, emotions, and spirituality. A peaceful artistic space by Lucile C.",
@@ -88,9 +92,13 @@ export default function Home() {
             </Button>
           </div>
           <div className="grid md:grid-cols-4 grid-cols-2 w-full visible lg:visible gap-3">
-            {links.map(({ imageUrl, buttonLabel }, index) => (
+            {links.map(({ imageUrl, buttonLabel, href }, index) => (
               <div key={index}>
-                <LinkCard imageUrl={imageUrl} buttonLabel={buttonLabel} />
+                <LinkCard
+                  href={href}
+                  imageUrl={imageUrl}
+                  buttonLabel={buttonLabel}
+                />
               </div>
             ))}
           </div>
@@ -99,7 +107,7 @@ export default function Home() {
       <AnimatedSection className="mt-12">
         <Carousel>
           <CarouselContent>
-            {links.map(({ imageUrl, title, description }, index) => (
+            {links.map(({ imageUrl, title, description, href }, index) => (
               <CarouselItem key={index}>
                 <div className="flex w-full bg-teal-200/20 rounded-lg h-full">
                   <Card className="relative bg-emerald-200 w-1/2 h-full rounded-l-lg rounded-r-none">
@@ -120,7 +128,9 @@ export default function Home() {
                       <CardDescription>{description}</CardDescription>
                     </CardContent>
                     <CardFooter className="font-mono">
-                      <Button>Take a look</Button>
+                      <Link href={href} prefetch={false} target="_blank">
+                        <Button>Take a look</Button>
+                      </Link>
                     </CardFooter>
                   </Card>
                 </div>
