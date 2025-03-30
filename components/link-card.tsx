@@ -9,11 +9,8 @@ interface LinkCardProps {
 
 export const LinkCard = ({ imageUrl, buttonLabel }: LinkCardProps) => {
   return (
-    <Card className="relative bg-emerald-200 w-1/4 h-72">
-      <CardContent className="flex justify-center items-center h-full">
-        <Image alt="" src={imageUrl} width={120} height={120} />
-      </CardContent>
-
+    <Card className="relative bg-emerald-200 h-72">
+      <Image fill className="object-cover rounded-lg" alt="" src={imageUrl} />
       <Button
         className="text-xl absolute bottom-[-10] left-1/2 transform -translate-x-1/2 rounded-xl"
         size="lg"

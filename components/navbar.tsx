@@ -21,7 +21,7 @@ export const Navbar = () => {
         <nav className="flex items-center gap-4">
           <InstagramIcon fill="#FF0069" width={32} height={32} />
           <TwitchIcon fill="#9146FF" width={32} height={32} />
-          <Button size="lg">Contactez-nous</Button>
+          <Button className="bg-gradient-to-r from-[#f64f59] via-[#c471ed] to-[#12c2e9]" size="lg">Contactez-nous</Button>
         </nav>
       </div>
     </header>

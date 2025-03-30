@@ -2,7 +2,15 @@ import { AnimatedSection } from "@/components/animated-section";
 import { LinkCard } from "@/components/link-card";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -15,70 +23,106 @@ import Image from "next/image";
 
 const links = [
   {
-    imageUrl: "/nekawa_hero.png",
+    imageUrl: "/nekawa_brand.png",
     buttonLabel: "Webdesign",
+    title: "nekawa.fr",
+    description:
+      "nekawa.fr is a creative duo combining a freelance fullstack developer and a WordPress designer. They design elegant, functional websites and visual identities for small businesses, artists, and entrepreneurs seeking a unique digital presence.",
   },
   {
-    imageUrl: "/nekawa_hero.png",
+    imageUrl: "/nayko_dev_brand.png",
     buttonLabel: "Nayko.dev",
+    title: "nayko.dev",
+    description:
+      "nayko.dev is the digital playground of Alexis (Nayko), a fullstack developer. It blends projects, experiments, and personal creations — all crafted with Next.js and Supabase in a sleek custom interface.",
   },
   {
-    imageUrl: "/nekawa_hero.png",
+    imageUrl: "/nekawa_shop_brand.png",
     buttonLabel: "Shop",
+    title: "nekawashop.fr",
+    description:
+      "nekawashop is our cozy brand space — a mix of esoteric designs, japanese and nordic vibes. Powered by Shopify, it’s where we share our world through art, fashion, and stories.",
   },
   {
-    imageUrl: "/nekawa_hero.png",
+    imageUrl: "/awaken_otter_brand.png",
     buttonLabel: "Aquarelle",
+    title: "la-loutre-eveillee.fr",
+    description:
+      "La Loutre Éveillée is a gentle invitation to slow living — offering illustrations, watercolors, and mindful creations rooted in nature, emotions, and spirituality. A peaceful artistic space by Lucile C.",
   },
 ];
 
 export default function Home() {
   return (
-    <div className={cn("flex flex-col gap-12 font-sans min-h-screen pt-28")}>
+    <div className={cn("flex flex-col gap-16 font-sans min-h-screen pt-28")}>
       <Navbar />
-      <div className="flex flex-col gap-12 w-full">
-        <AnimatedSection>
-          <div className="flex items-center justify-center bg-blue-950 w-full h-96 rounded-3xl">
-            <div className="z-10 items-center w-fit text-white text-[120px] mb-12">
-              Nekawa Tree
-            </div>
+      <AnimatedSection>
+        <div className="flex items-center justify-center bg-gradient-to-br from-blue-950 to-blue-900 w-full h-96 rounded-3xl shadow-lg">
+          <div className="z-10 text-white text-6xl md:text-[120px] font-extrabold drop-shadow-lg">
+            Nekawa Tree
           </div>
-        </AnimatedSection>
-        <AnimatedSection>
-          <div className="flex items-start gap-4">
-            <div className="flex flex-col gap-8 max-w-sm max-h-[150px]">
-              <p className="text-blue-900 text-4xl font-bold">
-                Découvre notre univers
-              </p>
-              <p className="text-blue-900 font-normal text-sm font-mono leading-8">
-                Un chat et une loutre un peu geek. Tous les deux passionnées par
-                l&apos;univers celtique et Japonais. Il n&apos;en fallait pas
-                plus pour partir à l&apos;aventure.
-              </p>
-              <Button size={"xl"}>Nous découvrir</Button>
-            </div>
+          <Image
+            fill
+            src="/nekawa_sword.png"
+            alt=""
+            className="object-cover md:mt-32 mt-14"
+          />
+        </div>
+      </AnimatedSection>
+      <AnimatedSection>
+        <div className="flex lg:flex-row flex-col items-start gap-4">
+          <div className="flex flex-col gap-8 lg:max-w-sm lg:max-h-[150px] w-full">
+            <p className="text-blue-900 text-4xl font-bold">
+              Découvre notre univers
+            </p>
+            <p className="text-blue-900 font-normal text-sm font-mono leading-8">
+              Un chat et une loutre un peu geek. Tous les deux passionnées par
+              l&apos;univers celtique et Japonais. Il n&apos;en fallait pas plus
+              pour partir à l&apos;aventure.
+            </p>
+            <Button
+              className="bg-gradient-to-r from-[#f64f59] via-[#c471ed] to-[#12c2e9]"
+              size={"xl"}
+            >
+              Nous découvrir
+            </Button>
+          </div>
+          <div className="grid md:grid-cols-4 grid-cols-2 w-full visible lg:visible gap-3">
             {links.map(({ imageUrl, buttonLabel }, index) => (
-              <LinkCard
-                key={index}
-                imageUrl={imageUrl}
-                buttonLabel={buttonLabel}
-              />
+              <div key={index}>
+                <LinkCard imageUrl={imageUrl} buttonLabel={buttonLabel} />
+              </div>
             ))}
           </div>
-        </AnimatedSection>
-      </div>
+        </div>
+      </AnimatedSection>
       <AnimatedSection className="mt-12">
         <Carousel>
           <CarouselContent>
-            {links.map(({ imageUrl, buttonLabel }, index) => (
+            {links.map(({ imageUrl, title, description }, index) => (
               <CarouselItem key={index}>
-                <div className="flex w-full bg-teal-200/20">
-                  <Card className="relative bg-emerald-200 w-1/4 h-72">
+                <div className="flex w-full bg-teal-200/20 rounded-lg h-full">
+                  <Card className="relative bg-emerald-200 w-1/2 h-full rounded-l-lg rounded-r-none">
                     <CardContent className="flex justify-center items-center h-full">
-                      <Image alt="" src={imageUrl} width={120} height={120} />
+                      <Image
+                        alt=""
+                        src={imageUrl}
+                        fill
+                        className="object-cover rounded-l-lg"
+                      />
                     </CardContent>
                   </Card>
-                  <p>{buttonLabel}</p>
+                  <Card className="rounded-r-lg rounded-l-none w-full">
+                    <CardHeader>
+                      <CardTitle>{title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="font-mono">
+                      <CardDescription>{description}</CardDescription>
+                    </CardContent>
+                    <CardFooter className="font-mono">
+                      <Button>Take a look</Button>
+                    </CardFooter>
+                  </Card>
                 </div>
               </CarouselItem>
             ))}
