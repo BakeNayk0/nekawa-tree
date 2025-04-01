@@ -2,6 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import clsx from 'clsx';
+import { toast } from 'sonner';
 
 type PageSectionProps = {
   children: React.ReactNode;

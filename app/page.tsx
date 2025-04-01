@@ -1,4 +1,5 @@
 import { AnimatedSection } from "@/components/animated-section";
+import { DonateButtons } from "@/components/donation-buttons";
 import { LinkCard } from "@/components/link-card";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
@@ -58,7 +59,7 @@ const links = [
 
 export default function Home() {
   return (
-    <div className={cn("flex flex-col gap-16 font-sans min-h-screen pt-28")}>
+    <div className={cn("flex flex-col gap-16 font-sans min-h-screen pt-28 pb-32")}>
       <Navbar />
       <AnimatedSection>
         <div className="flex items-center justify-center bg-gradient-to-br from-blue-950 to-blue-900 w-full h-96 rounded-3xl shadow-lg">
@@ -140,6 +141,9 @@ export default function Home() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
+      </AnimatedSection>
+      <AnimatedSection>
+        <DonateButtons />
       </AnimatedSection>
     </div>
   );
