@@ -36,7 +36,7 @@ const prices = [
     subscription: false,
   },
   {
-    title: "Nekawa Club",
+    title: "Nekawa Den",
     amount: "5€",
     description:
       "Be part of the adventure and receive montly promo coupon aswell as exclusive content from our shop",
