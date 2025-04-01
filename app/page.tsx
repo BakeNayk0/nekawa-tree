@@ -59,11 +59,12 @@ const links = [
 
 export default function Home() {
   return (
-    <div className={cn("flex flex-col gap-16 font-sans min-h-screen pt-28 pb-32")}>
-      <Navbar />
+    <div
+      className={cn("flex flex-col gap-16 font-sans min-h-screen pt-28 pb-32")}
+    >
       <AnimatedSection>
-        <div className="flex items-center justify-center bg-gradient-to-br from-blue-950 to-blue-900 w-full h-96 rounded-3xl shadow-lg">
-          <div className="z-10 text-white text-6xl md:text-[120px] font-extrabold drop-shadow-lg">
+        <div className="flex items-center justify-center bg-gradient-to-br from-blue-950 to-blue-900 w-full h-72 sm:h-96 rounded-3xl shadow-lg">
+          <div className="z-10 text-white text-4xl sm:text-6xl md:text-[120px] font-extrabold drop-shadow-lg">
             Nekawa Tree
           </div>
           <Image
@@ -110,30 +111,32 @@ export default function Home() {
           <CarouselContent>
             {links.map(({ imageUrl, title, description, href }, index) => (
               <CarouselItem key={index}>
-                <div className="flex w-full bg-teal-200/20 rounded-lg h-full">
-                  <Card className="relative bg-emerald-200 w-1/2 h-full rounded-l-lg rounded-r-none">
-                    <CardContent className="flex justify-center items-center h-full">
-                      <Image
-                        alt=""
-                        src={imageUrl}
-                        fill
-                        className="object-cover rounded-l-lg"
-                      />
-                    </CardContent>
-                  </Card>
-                  <Card className="rounded-r-lg rounded-l-none w-full">
-                    <CardHeader>
-                      <CardTitle>{title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="font-mono">
-                      <CardDescription>{description}</CardDescription>
-                    </CardContent>
-                    <CardFooter className="font-mono">
+                <div className="flex flex-col sm:flex-row w-full rounded-lg h-full overflow-hidden shadow-md bg-white/5 backdrop-blur-md border border-white/10">
+                  <div className="relative w-full sm:w-1/2 h-56 sm:h-auto">
+                    <Image
+                      alt={title}
+                      src={imageUrl}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-between p-4 w-full sm:w-1/2">
+                    <div>
+                      <CardHeader className="p-0">
+                        <CardTitle className="text-lg">{title}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0 pt-2 font-mono">
+                        <CardDescription className="text-sm text-muted-foreground">
+                          {description}
+                        </CardDescription>
+                      </CardContent>
+                    </div>
+                    <CardFooter className="p-0 pt-4">
                       <Link href={href} prefetch={false} target="_blank">
-                        <Button>Take a look</Button>
+                        <Button size="sm">Take a look</Button>
                       </Link>
                     </CardFooter>
-                  </Card>
+                  </div>
                 </div>
               </CarouselItem>
             ))}
@@ -142,6 +145,7 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
       </AnimatedSection>
+
       <AnimatedSection>
         <DonateButtons />
       </AnimatedSection>

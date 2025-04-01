@@ -37,7 +37,7 @@ const prices = [
   },
   {
     title: "Nekawa Den",
-    amount: "5€",
+    amount: "5€ / month",
     description:
       "Be part of the adventure and receive montly promo coupon aswell as exclusive content from our shop",
     priceId: "price_1R8oRPB0h06uXVwPqJDpyWOz",
@@ -80,13 +80,12 @@ export const DonateButtons = () => {
           >
             <CardHeader>
               <CardTitle className="text-zinc-800 text-lg font-semibold">
-                Nekawa Club
+                {title}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-zinc-600 text-sm">
-                Be part of the adventure and receive monthly promo coupons and
-                exclusive content
+                {description}
               </CardDescription>
             </CardContent>
             <CardFooter>
@@ -95,7 +94,7 @@ export const DonateButtons = () => {
                 className="bg-gradient-to-r from-emerald-400 to-blue-400 text-white font-bold shadow-md hover:opacity-90"
               >
                 {loading && <Loader2 className="animate-spin" />}
-                5€ / month
+                {amount}
               </Button>
             </CardFooter>
           </Card>
