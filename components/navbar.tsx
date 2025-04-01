@@ -73,7 +73,7 @@ export const Navbar = () => {
                   <TwitchIcon fill="#9146FF" width={32} height={32} />
                 </Link>
               </div>
-              <DrawerFooter>
+              <DrawerFooter className="mb-4">
                 <Link href="mailto:nekawa.info@gmail.com">
                   <Button
                     className="w-full bg-gradient-to-r from-[#f64f59] via-[#c471ed] to-[#12c2e9]"
