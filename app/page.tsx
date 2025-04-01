@@ -3,7 +3,6 @@ import { DonateButtons } from "@/components/donation-buttons";
 import { LinkCard } from "@/components/link-card";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
   CardContent,
   CardDescription,
   CardFooter,
