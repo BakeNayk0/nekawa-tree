@@ -1,7 +1,6 @@
 import { AnimatedSection } from "@/components/animated-section";
 import { DonateButtons } from "@/components/donation-buttons";
 import { LinkCard } from "@/components/link-card";
-import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
