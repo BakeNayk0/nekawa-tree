@@ -94,6 +94,7 @@ export const DonateButtons = () => {
                 onClick={() => handleDonate(priceId, subscription)}
                 className="bg-gradient-to-r from-emerald-400 to-blue-400 text-white font-bold shadow-md hover:opacity-90"
               >
+                {loading && <Loader2 className="animate-spin" />}
                 5€ / month
               </Button>
             </CardFooter>
@@ -118,6 +119,7 @@ export const DonateButtons = () => {
                 onClick={() => handleDonate(priceId, subscription)}
                 className="bg-gradient-to-r from-pink-400 to-cyan-400 text-white font-bold shadow-md hover:opacity-90"
               >
+                {loading && <Loader2 className="animate-spin" />}
                 {amount}
               </Button>
             </CardFooter>
