@@ -15,6 +15,7 @@ import {
   DrawerTrigger,
 } from "./ui/drawer";
 import { MenuIcon } from "lucide-react";
+import { MobileNavSocials } from "./mobile-nav-socials";
 
 export const Navbar = () => {
   return (
@@ -32,6 +33,9 @@ export const Navbar = () => {
             Nekawa Tree
           </h1>
         </div>
+        <nav className="sm:hidden visible">
+          <MobileNavSocials />
+        </nav>
         <nav className="hidden sm:flex items-center gap-4">
           <Link href="https://instagram.com/nekawashop" target="_blank">
             <InstagramIcon fill="#FF0069" width={32} height={32} />
